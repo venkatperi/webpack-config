@@ -1,0 +1,6 @@
+/dist
+/node_modules
+/tests/acceptance/builds
+/yarn.lock
+npm-debug.log
+.DS_Store

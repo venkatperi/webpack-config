@@ -1,0 +1,27 @@
+{
+  "name": "webpack-config-ca-example-app",
+  "author": {
+    "name": "Bevan Hunt",
+    "email": "bevan.hunt@ca.com"
+  },
+  "private": true,
+  "license": "MIT",
+  "version": "1.0.0",
+  "description": "webpack-config-ca example app",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "webpack-config-ca": "file:../",
+    "eslint-config-ca": "git+ssh://git@github-isl-01.ca.com:APIM-WEB/eslint-config-ca.git",
+    "webpack": "*",
+    "webpack-dev-server": "*"
+  },
+  "scripts": {
+    "build": "NODE_ENV=development webpack -d",
+    "start": "NODE_ENV=development webpack-dev-server -d"
+  }
+}
