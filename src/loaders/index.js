@@ -9,7 +9,7 @@ import webfonts from './loaders/webfonts';
 import fontgen from './loaders/fontgen';
 import eslint from './preloaders/eslint';
 import baggage from './preloaders/baggage';
-import sourcemap from './preloaders/sourcemap';
+import sourcemap from './preloaders/sourceMap';
 
 export default function (options) {
   return {
