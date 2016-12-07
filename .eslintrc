@@ -1,13 +1,4 @@
 {
   "parser": "babel-eslint",
   "extends": "ca",
-  "env": {
-    "node": true,
-    "es6": true
-  },
-  "globals": {
-    "it": false,
-    "expect": false,
-    "describe": false
-  }
 }
