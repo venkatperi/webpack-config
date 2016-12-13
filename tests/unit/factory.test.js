@@ -1,6 +1,6 @@
 import path from 'path';
 import webpack from 'webpack';
-import { factory } from '../../dist';
+import { factory } from '../../lib';
 
 describe('factory', () => {
   it('can create custom configuration from template', () => {
