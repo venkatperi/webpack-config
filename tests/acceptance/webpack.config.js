@@ -1,4 +1,4 @@
-const config = require('../../dist');
+const config = require('../../lib');
 
 module.exports = config({
   sourcePath: 'src',

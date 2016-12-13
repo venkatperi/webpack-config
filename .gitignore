@@ -1,6 +1,23 @@
-/dist
-/node_modules
-/tests/acceptance/builds
+# Logs
+*.log
+
+# Coverage tools
+coverage
+flow-coverage
+
+# Dependency directory
 /yarn.lock
 npm-debug.log
+node_modules
+
+# Editor artifacts
+.idea
+
+# Test builds
+/tests/acceptance/builds
+
+# Build
+lib
+
+# Other
 .DS_Store
