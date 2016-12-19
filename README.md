@@ -4,7 +4,6 @@
 
 ## Demos
 - Checkout the example folder for a client example.
-- Checkout the judo-heroes folder for a server (SSR) example.
 ************************************************************
 
 ## Installation
@@ -55,30 +54,6 @@ export default config().merge({
 });
 ```
 
-### Using templates
-```js
-import {factory} from 'webpack-config-ca';
-
-const template = (config, options, loaders, plugins) => {
-    return config.merge({
-        devtool: options.development ? 'foo' : 'bar',
-        module: {
-            loaders: [
-                loaders.css,
-                loaders.js,
-                {
-                    test: options.someExtraOption,
-                }
-            ],
-        },
-        plugins: [plugins.uglify]
-    });
-};
-
-export default factory(template, {
-    someExtraOption: 'foo',
-});
-```
 ************************************************************
 
 ## How Can You Contribute
