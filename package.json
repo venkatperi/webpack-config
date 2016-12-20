@@ -1,14 +1,16 @@
 {
   "name": "webpack-config-ca",
   "version": "1.0.0",
+  "author": "CA Technologies",
   "description": "Configuration for Webpack projects at CA",
   "main": "lib/index.js",
   "repository": "https://github.com/CAAPIM/webpack-config-ca",
   "keywords": [
     "webpack",
-    "config"
+    "config",
+    "webpack-config",
+    "ca"
   ],
-  "author": "Bevan Hunt <bevan.hunt@ca.com>",
   "license": "MIT",
   "dependencies": {
     "assets-webpack-plugin": "^3.4.0",
@@ -52,19 +54,21 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
+    "codecov": "^1.0.1",
     "commitizen": "^2.8.6",
     "cz-conventional-changelog": "^1.2.0",
     "eslint": "^3.11.1",
     "eslint-config-ca": "git+ssh://git@github.com:CAAPIM/eslint-config-ca.git",
+    "husky": "^0.11.9",
     "jest": "^17.0.3",
     "react": "^15.4.1",
     "semantic-release": "^6.3.2",
+    "validate-commit-msg": "^2.8.2",
     "webpack": "^1.13.3",
-    "webpack-dev-server": "^1.16.2",
-    "husky": "^0.11.9",
-    "validate-commit-msg": "^2.8.2"
+    "webpack-dev-server": "^1.16.2"
   },
   "scripts": {
+    "codecov": "codecov",
     "commit": "git-cz",
     "lint": "eslint ./src/ --ext .js",
     "flow": "flow",
