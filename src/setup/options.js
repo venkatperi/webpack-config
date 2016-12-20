@@ -17,40 +17,40 @@ export default function (options) {
 
   options = merge.recursive({
 
-    // Environment
+    /* Environment */
     name: 'main',
     development,
     env,
 
-    // HMR
+    /* HMR */
     domain: process.env.APP_URL,
     hot: options.devServer === false ? development : process.argv.indexOf('--inline') !== -1,
 
-    // devServer
+    /* devServer */
     indexPage: '/index.html',
     contentBase: process.env.APP_URL,
 
-    // Filenames and paths
+    /* Filenames and paths */
     filenames: development ? '[name]' : '[name].[hash]',
     devServer: 'http://localhost:8080',
     sourcePath: 'resources/assets/js',
     outputPath: 'public/builds/',
 
-    // Frameworks
+    /* Frameworks */
     react: true,
 
-    // Other options
+    /* Other options */
     linting: false,
     inlineLimit: 50000,
 
-    // Loaders
+    /* Loaders */
     loaders: {
       js: 'babel-loader',
       css: development ? 'css-loader?sourceMap' : 'css-loader!postcss-loader',
     },
   }, options);
 
-  // Uniformize source path and entry point
+  /* Uniformize source path and entry point */
   options.entry = options.sourcePath;
   options.sourcePath = path.resolve(path.dirname(options.sourcePath));
 

@@ -4,17 +4,14 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
-/* eslint-disable spaced-comment, no-param-reassign */
+/* eslint-disable no-param-reassign */
 
 import webpack from 'webpack';
 import ExtractText from 'extract-text-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 
 export default function (config, options, loaders, plugins) {
-  //////////////////////////////////////////////////////////////////////
-  ////////////////////////////// DEFAULTS //////////////////////////////
-  //////////////////////////////////////////////////////////////////////
-
+  /* DEFAULTS */
   config = config.merge({
     output: {
       publicPath: `/${options.outputPath.replace('public/', '')}`,
@@ -45,18 +42,7 @@ export default function (config, options, loaders, plugins) {
     postcss: () => ([autoprefixer]),
   });
 
-  if (options.ts) {
-    config.merge({
-      module: {
-        loaders: [loaders.ts],
-      },
-    });
-  }
-
-  //////////////////////////////////////////////////////////////////////
-  ////////////////////////////// LINTING ///////////////////////////////
-  //////////////////////////////////////////////////////////////////////
-
+  /* LINTING */
   if (options.linting && options.development) {
     // eslint
     config = config.merge({
@@ -70,18 +56,12 @@ export default function (config, options, loaders, plugins) {
     config.plugins.push(plugins.flowStatus);
   }
 
-  //////////////////////////////////////////////////////////////////////
-  /////////////////////////////// LOCAL ////////////////////////////////
-  //////////////////////////////////////////////////////////////////////
-
+  /* LOCAL */
   if (options.development) {
     config.plugins.push(plugins.stats);
   }
 
-  //////////////////////////////////////////////////////////////////////
-  ////////////////////////// SOURCEMAPS ////////////////////////////////
-  //////////////////////////////////////////////////////////////////////
-
+  /* SOURCEMAPS */
   if (options.development) {
     config = config.merge({
       debug: true,
@@ -98,18 +78,12 @@ export default function (config, options, loaders, plugins) {
     });
   }
 
-  //////////////////////////////////////////////////////////////////////
-  ////////////////////////// BROWSERSYNC ///////////////////////////////
-  //////////////////////////////////////////////////////////////////////
-
+  /* BROWSERSYNC */
   if (options.development && options.devServer) {
     config.plugins.push(plugins.browserSync);
   }
 
-  //////////////////////////////////////////////////////////////////////
-  //////////////////////////////// HMR /////////////////////////////////
-  //////////////////////////////////////////////////////////////////////
-
+  /* HMR */
   if (options.hot && options.devServer) {
     config = config.merge({
       output: {
@@ -124,8 +98,6 @@ export default function (config, options, loaders, plugins) {
       },
       plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        // disable for linting
-        // new webpack.NoErrorsPlugin()
       ],
     });
 
@@ -139,16 +111,11 @@ export default function (config, options, loaders, plugins) {
     config = config.merge({
       plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        // disable for linting
-        // new webpack.NoErrorsPlugin()
       ],
     });
   }
 
-  //////////////////////////////////////////////////////////////////////
-  ///////////////////////////// PRODUCTION /////////////////////////////
-  //////////////////////////////////////////////////////////////////////
-
+  /* PRODUCTION */
   if (!options.development) {
     config = config.merge({
       plugins: [
