@@ -34,7 +34,7 @@ module.exports.server = options => templateFactory(serverTemplate, {
 module.exports.packages = options => templateFactory(packagesTemplate, {
   ...options,
   sourcePath: 'src',
-  outputPath: 'dist',
+  outputPath: 'lib',
   react: false,
 });
 
