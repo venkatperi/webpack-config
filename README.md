@@ -12,6 +12,7 @@ Configuration for Webpack projects at CA
 
 ## Demos
 - Checkout the example folder for a client example.
+
 ************************************************************
 
 ## Installation
