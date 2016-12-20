@@ -1,7 +1,7 @@
 import path from 'path';
 import applications from '../../../src';
 
-describe('templates/applications', () => {
+describe('setup/main', () => {
   let config;
 
   it('can change options depending on environment', () => {
@@ -46,16 +46,7 @@ describe('templates/applications', () => {
       ],
     });
 
-    expect(config.module.loaders[0]).toEqual({foo: 'bar'});
-    expect(config.plugins[0]).toEqual({foo: 'bar'});
+    expect(config.module.loaders[0]).toEqual({ foo: 'bar' });
+    expect(config.plugins[0]).toEqual({ foo: 'bar' });
   });
-
-  // it('can enable linting', () => {
-  //   config = applications({
-  //     linting: true,
-  //   });
-
-  //   expect(config.module.preLoaders[1].loader).toEqual('eslint-loader');
-  //   expect(config.eslint.extends).toEqual('eslint-config-airbnb');
-  // });
 });

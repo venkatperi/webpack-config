@@ -1,1 +1,1 @@
-import './SomeComponent';
+import './test';

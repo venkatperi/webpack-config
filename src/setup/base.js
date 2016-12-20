@@ -24,7 +24,7 @@ export default function (options, loaders, plugins) {
       filename: `${options.filenames}.js`,
     },
     resolve: {
-      extensions: ['', '.ts', '.js'],
+      extensions: ['', '.js'],
     },
     plugins: objectPath.get(options, 'plugins', []),
     module: {
@@ -43,7 +43,6 @@ export default function (options, loaders, plugins) {
       },
       plugins: [
         new CleanPlugin(options.outputPath, process.cwd()),
-        // new webpack.optimize.DedupePlugin(),
         plugins.uglify,
       ],
     });
