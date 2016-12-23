@@ -12,7 +12,6 @@ import objectPath from 'object-path';
 export default function (options, loaders, plugins) {
   let config = new Config().merge({
     debug: true,
-    devtool: 'eval',
     cache: true,
 
     entry: {
