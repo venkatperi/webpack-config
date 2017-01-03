@@ -32,7 +32,7 @@ export default function (options) {
     filenames: development ? '[name]' : '[name].[hash]',
     devServer: 'http://localhost:8080',
     sourcePath: 'src',
-    outputPath: 'lib',
+    outputPath: 'public',
 
     /* Frameworks */
     react: true,
