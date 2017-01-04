@@ -10,10 +10,8 @@ import path from 'path';
 import merge from 'merge';
 
 export default function (options) {
-  const env = process.env.BABEL_ENV || process.env.NODE_ENV || process.env.APP_ENV;
-  const development = typeof options.development === 'undefined'
-    ? env !== 'production'
-    : options.development;
+  const env = process.env.NODE_ENV;
+  const development = options.development || env === 'development';
 
   options = merge.recursive({
 
@@ -24,7 +22,7 @@ export default function (options) {
 
     /* HMR */
     domain: process.env.APP_URL,
-    hot: options.devServer === false ? development : process.argv.indexOf('--inline') !== -1,
+    hot: options.devServer || development,
 
     /* devServer */
     indexPage: '/index.html',
@@ -33,8 +31,8 @@ export default function (options) {
     /* Filenames and paths */
     filenames: development ? '[name]' : '[name].[hash]',
     devServer: 'http://localhost:8080',
-    sourcePath: 'resources/assets/js',
-    outputPath: 'public/builds/',
+    sourcePath: 'src',
+    outputPath: 'public',
 
     /* Frameworks */
     react: true,
