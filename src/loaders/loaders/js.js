@@ -4,28 +4,11 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
+// TODO: Add HMR without overriding user defined babel configs
 export default function (options) {
-  const presets = [];
-
-  presets.push('ca');
-
-  if (options.react) {
-    presets.push('react');
-  }
-
-  if (options.react && options.hot) {
-    presets.push('react-hmre');
-  }
-
-  const config = {
-    presets,
-  };
-
-  const loader = `${options.loaders.js}?${JSON.stringify(config)}`;
-
   return {
     test: /\.js$/,
-    loader,
+    loader: options.loaders.js,
     include: options.sourcePath,
   };
 }
