@@ -5,24 +5,17 @@
 [![dependencies](https://david-dm.org/caapim/webpack-config-ca.svg)](https://david-dm.org/caapim/webpack-config-ca)
 [![devDependency Status](https://david-dm.org/caapim/webpack-config-ca/dev-status.svg)](https://david-dm.org/caapim/webpack-config-ca#info=devDependencies)
 
-This module is intended to be used in all CA React components and applications
-************************************************************
-
-Configuration for Webpack projects at CA
-
-## Demos
-- Checkout the example folder for a client example.
-
-************************************************************
+## Overview
+Extensible configuration for Webpack projects at CA. This module is intended to be used in all CA JavaScript applications that require resource bundling.
 
 ## Installation
 ```bash
-$ npm install webpack-config-ca --save-dev
+$ npm install --save-dev webpack-config-ca
 ```
-************************************************************
 
 ## Usage
 ### Basic usage
+Simply paste the following two lines of code in your `webpack.config.js`:
 ```js
 import config from 'webpack-config-ca';
 
@@ -35,16 +28,16 @@ You can also fine-tune aspects of the configuration:
 import config from 'webpack-config-ca';
 
 export default config({
-    sourcePath: 'src',
-    outputPath: 'builds',
-    hot: true,
-    linting: true
+  sourcePath: 'src',
+  outputPath: 'builds',
+  hot: true,
+  linting: true
 });
 ```
 
-#### Important Flags
-- ` hot: (true|false) ` for hot reloading
-- ` linting: (true|false) ` for eslint and flow support - can put .eslintrc & .flowconfig in your project folder
+**Important Flags:**
+- `hot: (true|false)` for hot reloading
+- `linting: (true|false)` for eslint and flow support - will use `.eslintrc` & `.flowconfig` from your project folder
 
 ### Advanced usage
 
@@ -52,18 +45,19 @@ export default config({
 import config from 'webpack-config-ca';
 
 export default config().merge({
-    module: {
-        loaders: [
-            // Append a loader
-        ],
-    }
-    plugins: [
-        // Append a plugin
+  module: {
+    loaders: [
+      // Append a loader
     ],
+  }
+  plugins: [
+    // Append a plugin
+  ],
 });
 ```
 
-************************************************************
+## Demos
+- Checkout the [example folder](example).
 
 ## How Can You Contribute
 Your contributions are welcome and much appreciated. To learn more, see the [Contribution Guidelines](https://github.com/CAAPIM/webpack-config-ca/blob/master/CONTRIBUTING.md).
@@ -72,7 +66,6 @@ This project supports `commitizen`. You can use `npm run commit` to run the loca
 
 Alternatively, if you are simply using `git commit`, you must follow this format:
 `git commit -m "<type>: <subject>"`
-************************************************************
 
 ## License
 Copyright (c) 2016 CA. All rights reserved.
