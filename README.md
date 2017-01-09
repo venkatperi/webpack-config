@@ -6,22 +6,36 @@
 [![devDependency Status](https://david-dm.org/caapim/webpack-config-ca/dev-status.svg)](https://david-dm.org/caapim/webpack-config-ca#info=devDependencies)
 
 ## Overview
-Extensible configuration for Webpack projects at CA. This module is intended to be used in all CA JavaScript applications that require resource bundling.
+Extensible configuration for [Webpack](https://webpack.github.io/) projects at CA. This module is intended to be used in all CA JavaScript applications that require resource bundling.
 
 ## Installation
 ```bash
-$ npm install --save-dev webpack-config-ca
+$ npm install --save-dev webpack webpack-dev-server webpack-config-ca
 ```
 
 ## Usage
 ### Basic usage
-Simply paste the following two lines of code in your `webpack.config.js`:
+1) paste the following two lines of code in your `webpack.config.js`:
 ```js
 import config from 'webpack-config-ca';
 
 export default config();
 ```
 
+2) Then add the `build` and `start` scripts to your `package.json`:
+```js
+"scripts": {
+  "build": "webpack -d",
+  "start": "webpack-dev-server -d"
+}
+```
+
+3) Start the webpack development server from the terminal:
+```shell
+npm start
+```
+
+### Custom Webpack settings
 You can also fine-tune aspects of the configuration:
 
 ```js
