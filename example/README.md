@@ -1,5 +1,4 @@
-# webpack-config-ca example app
+# webpack-config example app
 
-- `nvm use` - if needed
-- `npm i` - if needed
+- `npm install`
 - `npm start` - the browser should open automatically

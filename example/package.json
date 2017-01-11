@@ -1,24 +1,24 @@
 {
-  "name": "webpack-config-ca-example-app",
+  "name": "webpack-config-example-app",
   "author": "CA Technologies",
   "private": true,
   "license": "MIT",
   "version": "1.0.0",
-  "description": "webpack-config-ca example app",
+  "description": "webpack-config example app",
   "main": "webpack.config.js",
   "dependencies": {
     "react": "^15.4.1",
     "react-dom": "^15.4.1"
   },
   "devDependencies": {
+    "@caapim/webpack-config": "^1.0.0",
     "babel-eslint": "^7.1.1",
-    "eslint-config-ca": "git+ssh://git@github-isl-01.ca.com:APIM-WEB/eslint-config-ca.git",
+    "eslint-config-ca": "^1.0.0",
     "webpack": "*",
-    "webpack-config-ca": "file:../",
     "webpack-dev-server": "*"
   },
   "scripts": {
-    "build": "NODE_ENV=development webpack -d",
-    "start": "NODE_ENV=development webpack-dev-server -d"
+    "build": "webpack -d",
+    "start": "webpack-dev-server -d"
   }
 }

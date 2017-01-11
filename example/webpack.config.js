@@ -4,7 +4,7 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
-const config = require('webpack-config-ca');
+const config = require('@caapim/webpack-config');
 
 module.exports = config({
   sourcePath: 'src',
