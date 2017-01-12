@@ -4,7 +4,7 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import test from './test.svg';
 
 export default class Test extends Component {
