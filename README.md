@@ -1,9 +1,9 @@
 # CA Technologies Webpack configuration
+[![Build Status](https://travis-ci.org/CAAPIM/webpack-config.svg?branch=master)](https://travis-ci.org/CAAPIM/webpack-config)
+[![codecov](https://codecov.io/gh/CAAPIM/webpack-config/branch/master/graph/badge.svg)](https://codecov.io/gh/CAAPIM/webpack-config)
+[![dependencies](https://david-dm.org/CAAPIM/webpack-config.svg)](https://david-dm.org/CAAPIM/webpack-config)
+[![devDependency Status](https://david-dm.org/CAAPIM/webpack-config/dev-status.svg)](https://david-dm.org/CAAPIM/webpack-config#info=devDependencies)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
-[![Build Status](https://travis-ci.org/caapim/webpack-config.svg?branch=master)](https://travis-ci.org/caapim/webpack-config)
-[![codecov](https://codecov.io/gh/caapim/webpack-config/branch/master/graph/badge.svg)](https://codecov.io/gh/caapim/webpack-config)
-[![dependencies](https://david-dm.org/caapim/webpack-config.svg)](https://david-dm.org/caapim/webpack-config)
-[![devDependency Status](https://david-dm.org/caapim/webpack-config/dev-status.svg)](https://david-dm.org/caapim/webpack-config#info=devDependencies)
 
 ## Overview
 Extensible configuration for [Webpack](https://webpack.github.io/) projects at CA. This module is intended to be used in all CA JavaScript applications that require resource bundling.
