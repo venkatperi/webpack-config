@@ -1,6 +1,6 @@
 {
   "name": "@caapim/webpack-config",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "author": "CA Technologies",
   "description": "Configuration for Webpack projects at CA",
   "main": "lib/index.js",
@@ -59,6 +59,8 @@
     "cz-conventional-changelog": "^1.2.0",
     "eslint": "^3.11.1",
     "eslint-config-ca": "^1.0.0",
+    "flow-bin": "^0.36.0",
+    "flow-coverage-report": "^0.2.0",
     "husky": "^0.11.9",
     "jest": "^17.0.3",
     "react": "^15.4.1",
@@ -71,17 +73,18 @@
   "scripts": {
     "codecov": "codecov",
     "commit": "git-cz",
-    "lint": "eslint ./src/ --ext .js",
-    "flow": "flow",
+    "lint": "eslint .",
+    "flow": "flow check",
+    "flow:coverage": "flow-coverage-report -i './src/**/*.js' -t html -t text",
     "prebuild": "rimraf ./lib",
     "build": "babel src --out-dir lib",
-    "test:acceptance": "cd tests/acceptance; webpack --bail; NODE_ENV=production webpack --bail",
-    "test:unit": "jest",
+    "test": "jest",
     "test:coverage": "jest --coverage",
-    "test": "npm run build; npm run test:acceptance; npm run test:unit",
+    "pretest:acceptance": "npm run build",
+    "test:acceptance": "cd tests/acceptance; webpack --bail; NODE_ENV=production webpack --bail",
     "release": "semantic-release pre && npm publish && semantic-release post",
     "commitmsg": "validate-commit-msg",
-    "precommit": "npm run lint && npm run test"
+    "precommit": "npm run lint && npm run flow && npm run test && npm run test:acceptance"
   },
   "config": {
     "validate-commit-msg": {
@@ -94,14 +97,6 @@
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.js"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 90,
-        "functions": 90,
-        "lines": 90,
-        "statements": 90
-      }
-    }
+    ]
   }
 }
