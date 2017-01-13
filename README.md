@@ -10,14 +10,14 @@ Extensible configuration for [Webpack](https://webpack.github.io/) projects at C
 
 ## Installation
 ```bash
-$ npm install --save-dev webpack webpack-dev-server @caapim/webpack-config
+$ npm install --save-dev webpack webpack-dev-server ca-ui-webpack-config
 ```
 
 ## Usage
 ### Basic usage
 1) paste the following two lines of code in your `webpack.config.js`:
 ```js
-import config from '@caapim/webpack-config';
+import config from 'ca-ui-webpack-config';
 
 export default config();
 ```
@@ -39,7 +39,7 @@ npm start
 You can also fine-tune aspects of the configuration:
 
 ```js
-import config from '@caapim/webpack-config';
+import config from 'ca-ui-webpack-config';
 
 export default config({
   sourcePath: 'src',
@@ -56,7 +56,7 @@ export default config({
 ### Advanced usage
 
 ```js
-import config from '@caapim/webpack-config';
+import config from 'ca-ui-webpack-config';
 
 export default config().merge({
   module: {
