@@ -4,7 +4,7 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
-const config = require('ca-ui-webpack-config');
+const config = require('ca-webpack-config');
 
 module.exports = config({
   sourcePath: 'src',
