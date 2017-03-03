@@ -7,6 +7,7 @@
   "description": "webpack-config example app",
   "main": "webpack.config.js",
   "dependencies": {
+    "extract-text-webpack-plugin": "^2.0.0-rc.3",
     "react": "^15.4.1",
     "react-dom": "^15.4.1"
   },
@@ -14,11 +15,11 @@
     "ca-webpack-config": "^1.0.0",
     "babel-eslint": "^7.1.1",
     "eslint-config-ca": "^1.0.0",
-    "webpack": "*",
-    "webpack-dev-server": "*"
+    "webpack": "^2.2.1",
+    "webpack-config": "^7.0.0"
   },
   "scripts": {
     "build": "webpack -d",
-    "start": "webpack-dev-server -d"
+    "start": "webpack -d && webpack-dev-server -d"
   }
 }

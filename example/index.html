@@ -8,6 +8,15 @@
   <main id="app"></main>
   <main id="app-increase-2"></main>
 
-  <script type="text/javascript" src="builds/main.js"></script>
+  <script type="text/javascript" id="app-loader"></script>
+  <script type="text/javascript">
+    // DYNAMICALLY SET THE APP-LOADER SRC BASED ON THE WEBPACK HASH
+    const request = new XMLHttpRequest();
+    request.open("GET", "./builds/manifest.json", false);
+    request.send(null)
+    const manifestJSON = JSON.parse(request.responseText);
+    const appLoader = document.getElementById('app-loader');
+    appLoader.setAttribute('src', manifestJSON.main.js);
+  </script>
 </body>
 </html>

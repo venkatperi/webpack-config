@@ -13,11 +13,11 @@ describe('loaders/loaders/js', () => {
     config = loader({
       react: true,
       sourcePath: 'foobar',
-      loaders: {
+      rules: {
         js: 'babel',
       },
     });
-
-    expect(config.loader).toContain('babel');
+    console.log('config', config);
+    expect(config.rules).toContain('babel');
   });
 });

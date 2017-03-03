@@ -15,7 +15,7 @@ describe('setup/main', () => {
       development: true,
       outputPath: 'foobar',
     });
-
+    console.log('CONFIG', config.plugins['LoaderOptionsPlugin']);
     expect(config.debug).toEqual(true);
     expect(config.output.path).toEqual(path.resolve('foobar'));
     expect(config.output.filename).not.toContain('[hash]');

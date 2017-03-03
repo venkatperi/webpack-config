@@ -16,9 +16,9 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "assets-webpack-plugin": "^3.4.0",
+    "assets-webpack-plugin": "^3.5.1",
     "autoprefixer": "^6.5.0",
-    "babel-loader": "^6.2.5",
+    "babel-loader": "^6.3.2",
     "baggage-loader": "^0.2.4",
     "browser-sync": "^2.18.2",
     "browser-sync-webpack-plugin": "^1.1.3",
@@ -26,7 +26,7 @@
     "css-loader": "^0.25.0",
     "dotenv": "^2.0.0",
     "eslint-loader": "^1.5.0",
-    "extract-text-webpack-plugin": "^1.0.1",
+    "extract-text-webpack-plugin": "^2.0.0-rc.3",
     "file-loader": "^0.9.0",
     "flow-bin": "^0.36.0",
     "flow-status-webpack-plugin": "^0.1.7",
@@ -43,15 +43,15 @@
     "stats-webpack-plugin": "^0.4.2",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
-    "webpack-config": "^6.1.3",
+    "webpack-config": "^7.0.0",
     "webpack-node-externals": "^1.5.4"
   },
   "peerDependencies": {
-    "webpack-dev-server": "*",
-    "webpack": "*"
+    "webpack-dev-server": "7.0.0",
+    "webpack": "2.2.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.18.0",
+    "babel-cli": "^6.23.0",
     "babel-eslint": "^7.1.1",
     "babel-preset-ca": "^1.0.0",
     "codecov": "^1.0.1",
@@ -67,8 +67,8 @@
     "rimraf": "^2.5.4",
     "semantic-release": "^6.3.2",
     "validate-commit-msg": "^2.8.2",
-    "webpack": "^1.13.3",
-    "webpack-dev-server": "^1.16.2"
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1"
   },
   "scripts": {
     "codecov": "codecov",
