@@ -60,6 +60,7 @@ export default function (config, options, loaders, plugins) {
         ],
       },
     });
+
     // flow
     config.plugins.push(plugins.flowStatus);
   }

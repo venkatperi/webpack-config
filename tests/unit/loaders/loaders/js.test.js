@@ -14,10 +14,13 @@ describe('loaders/loaders/js', () => {
       react: true,
       sourcePath: 'foobar',
       rules: {
-        js: 'babel',
+        js: {
+          test: /\.js$/,
+          use: 'babel-loader',
+        },
       },
     });
-    console.log('config', config);
-    expect(config.rules).toContain('babel');
+
+    expect(config).toEqual({"include": "foobar", "test": /\.js$/, "use": "babel-loader"});
   });
 });
