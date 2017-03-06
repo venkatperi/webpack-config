@@ -10,8 +10,8 @@ export default function (options) {
   return {
     test: /\.font\.json$/,
     loader: ExtractText.extract({
-      fallback: 'style',
-      use: `${options.rules.css}!fontgen?embed`,
+      fallback: 'style-loader',
+      use: `${options.rules.css}!fontgen-loader?embed`,
     }),
   };
 }

@@ -11,7 +11,7 @@ export default function (options) {
     test: /\.scss$/,
     loader: ExtractText.extract({
       fallback: 'style-loader',
-      use: `${options.rules.css}!sass`,
+      use: `${options.rules.css}!sass-loader`,
     }),
   };
 }

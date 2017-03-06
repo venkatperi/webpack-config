@@ -10,7 +10,7 @@ export default function (options) {
   return {
     test: /\.css$/,
     use: ExtractText.extract({
-      fallback: 'style',
+      fallback: 'style-loader',
       use: options.rules.css.use,
     }),
   };

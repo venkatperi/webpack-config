@@ -8,7 +8,7 @@ export default function (options) {
   return {
     test: /\.woff/,
     use: {
-      loader: 'url',
+      loader: 'url-loader',
       query: {
         limit: options.inlineLimit,
         mimetype: 'application/font-woff',

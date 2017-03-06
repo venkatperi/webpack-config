@@ -36,7 +36,6 @@ export default function (config, options, loaders, plugins) {
     ],
     module: {
       rules: [
-        loaders.baggage,
         loaders.css,
         loaders.scss,
         loaders.js,
