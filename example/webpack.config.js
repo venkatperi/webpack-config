@@ -4,12 +4,12 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
-const HTMLWebpackPlugin = require('../node_modules/html-webpack-plugin');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
 const config = require('../');
 
 module.exports = config({
-  sourcePath: './src',
-  outputPath: './',
+  sourcePath: 'src',
+  outputPath: 'build',
   hot: true,
   linting: true,
   plugins: [

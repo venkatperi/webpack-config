@@ -2,6 +2,4 @@
 /yarn.lock
 npm-debug.log
 .DS_Store
-index.html
-main.*.js
-manifest.json
+build

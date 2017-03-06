@@ -18,7 +18,6 @@
   },
   "scripts": {
     "build": "webpack -d",
-    "prestart": "cd ../ && npm run build",
     "start": "webpack-dev-server -d"
   }
 }
