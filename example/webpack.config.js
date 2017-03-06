@@ -4,16 +4,18 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
-const WriteFilePlugin = require('write-file-webpack-plugin');
-
-const config = require('../lib/');
+const HTMLWebpackPlugin = require('../node_modules/html-webpack-plugin');
+const config = require('../');
 
 module.exports = config({
-  sourcePath: 'src',
-  outputPath: 'builds',
+  sourcePath: './src',
+  outputPath: './',
   hot: true,
   linting: true,
   plugins: [
-    new WriteFilePlugin(),
+    new HTMLWebpackPlugin({
+      inject: 'body',
+      template: 'index_template.html',
+    }),
   ],
 });

@@ -21,6 +21,7 @@ describe('loaders/loaders/js', () => {
       },
     });
 
+    /* eslint-disable */
     expect(config).toEqual({"include": "foobar", "test": /\.js$/, "use": "babel-loader"});
   });
 });

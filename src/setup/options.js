@@ -12,7 +12,7 @@ import merge from 'merge';
 export default function (options) {
   const env = process.env.NODE_ENV;
   const development = options.development || env === 'development';
-  const cssLoader = development ? 
+  const cssLoader = development ?
     'css-loader?sourceMap' : '-!css-loader?{"modules":true}!postcss-loader??postcss-ident';
 
   options = merge.recursive({

@@ -8,11 +8,11 @@ export default function (options) {
   return {
     test: /\.woff/,
     use: {
-    	loader: 'url',
-	    query: {
-	      limit: options.inlineLimit,
-	      mimetype: 'application/font-woff',
-	    },
-	  },
+      loader: 'url',
+      query: {
+        limit: options.inlineLimit,
+        mimetype: 'application/font-woff',
+      },
+    },
   };
 }

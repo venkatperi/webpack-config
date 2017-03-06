@@ -24,7 +24,7 @@ export default function (config, options, loaders, plugins) {
           context: __dirname,
           postcss: () => ([autoprefixer]),
         },
-      }),    
+      }),
       new ExtractText({
         filename: `${options.filenames}.css`,
         disable: false,

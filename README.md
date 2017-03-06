@@ -26,7 +26,7 @@ export default config();
 ```js
 "scripts": {
   "build": "webpack -d",
-  "start": "webpack -d && webpack-dev-server -d"
+  "start": "webpack-dev-server -d"
 }
 ```
 

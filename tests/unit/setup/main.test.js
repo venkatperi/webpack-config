@@ -5,7 +5,6 @@
  */
 
 import path from 'path';
-import { each } from 'lodash';
 import applications from '../../../src';
 
 describe('setup/main', () => {
@@ -64,7 +63,7 @@ describe('setup/main', () => {
     });
     let keyFound = false;
 
-    if (config.module.rules.filter((item) => item.use == 'eslint-loader').length > 0) {
+    if (config.module.rules.filter((item) => item.use === 'eslint-loader').length > 0) {
       keyFound = true;
     }
 

@@ -6,7 +6,7 @@
 
 export default function (options) {
   return {
-  	enforce: 'pre',
+    enforce: 'pre',
     test: /\.(js|ts)$/,
     use: 'baggage-loader?[file].html=template&[file].scss',
     include: options.sourcePath,

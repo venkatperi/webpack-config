@@ -1,5 +1,7 @@
 /node_modules
 /yarn.lock
 npm-debug.log
-builds
 .DS_Store
+index.html
+main.*.js
+manifest.json

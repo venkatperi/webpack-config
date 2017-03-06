@@ -7,11 +7,8 @@
 export default function () {
   return {
     test: /\.html$/,
-	  use: {
-	    loader: 'file-loader',
-	    query: {
-	      name: '[name].[ext]',
-	    },
-	  },
+    use: {
+      loader: 'html-loader',
+    },
   };
 }

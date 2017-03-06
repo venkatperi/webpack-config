@@ -10,8 +10,8 @@ export default function (options) {
   return {
     test: /\.scss$/,
     loader: ExtractText.extract({
-    	fallback: 'style-loader', 
-    	use: `${options.rules.css}!sass`,
+      fallback: 'style-loader',
+      use: `${options.rules.css}!sass`,
     }),
   };
 }
