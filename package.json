@@ -85,7 +85,7 @@
     "test:acceptance": "cd tests/acceptance; webpack --bail; NODE_ENV=production webpack --bail",
     "release": "semantic-release pre && npm publish && semantic-release post",
     "commitmsg": "validate-commit-msg",
-    "precommit": "npm run lint && npm run flow && npm run test",
+    "precommit": "npm run lint && npm run flow && npm run test && npm run test:acceptance",
     "start": "npm run build && cd example && npm start"
   },
   "config": {
