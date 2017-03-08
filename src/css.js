@@ -5,8 +5,12 @@
  */
 
 import webpack from 'webpack';
+import Config from 'webpack-config';
 
-export default new webpack.DefinePlugin({
-  'process.env.BABEL_ENV': process.env.NODE_ENV,
-  'process.env.NODE_ENV': process.env.NODE_ENV,
+import cssLoader from './loaders/css';
+
+export default new Config().extend('base.js').merge({
+  module: {
+    rules: [cssLoader],
+  },
 });

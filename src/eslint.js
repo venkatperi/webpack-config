@@ -5,13 +5,12 @@
  */
 
 import webpack from 'webpack';
+import Config from 'webpack-config';
 
-export default function () {
-  return new webpack.optimize.UglifyJsPlugin({
-    mangle: true,
-    compress: {
-      screw_ie8: true,
-      warnings: false,
-    },
-  });
-}
+import { eslint } from './loaders';
+
+export default new Config().extend('base.js').merge({
+  module: {
+    rules: [eslint],
+  },
+});

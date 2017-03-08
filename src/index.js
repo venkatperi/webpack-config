@@ -4,7 +4,6 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
-import main from './setup/main';
-import setup from './setup';
+import baseConfig from './base';
 
-module.exports = options => setup(main, options);
+export default baseConfig;

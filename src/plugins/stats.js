@@ -6,8 +6,6 @@
 
 import StatsPlugin from 'stats-webpack-plugin';
 
-export default function () {
-  return new StatsPlugin('stats.json', {
-    chunkModules: true,
-  });
-}
+export default new StatsPlugin('stats.json', {
+  chunkModules: true,
+});

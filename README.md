@@ -10,14 +10,14 @@ Extensible configuration for [Webpack](https://webpack.github.io/) projects at C
 
 ## Installation
 ```bash
-$ npm install --save-dev webpack webpack-dev-server ca-webpack-config
+$ npm install --save-dev webpack webpack-dev-server webpack-config-ca
 ```
 
 ## Usage
 ### Basic usage
 1) paste the following two lines of code in your `webpack.config.js`:
 ```js
-import config from 'ca-webpack-config';
+import config from 'webpack-config-ca';
 
 export default config();
 ```
@@ -39,7 +39,7 @@ npm start
 You can also fine-tune aspects of the configuration:
 
 ```js
-import config from 'ca-webpack-config';
+import config from 'webpack-config-ca';
 
 export default config({
   sourcePath: 'src',
@@ -56,7 +56,7 @@ export default config({
 ### Advanced usage
 
 ```js
-import config from 'ca-webpack-config';
+import config from 'webpack-config-ca';
 
 export default config().merge({
   module: {

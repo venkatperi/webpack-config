@@ -4,11 +4,9 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
-export default function () {
-  return {
-    enforce: 'pre',
-    test: /\.js$/,
-    use: 'eslint-loader',
-    exclude: /node_modules/,
-  };
-}
+export default {
+  enforce: 'pre',
+  test: /\.js$/,
+  use: 'eslint-loader',
+  include: /src/,
+};

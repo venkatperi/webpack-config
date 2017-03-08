@@ -6,12 +6,14 @@
 
 import ExtractText from 'extract-text-webpack-plugin';
 
-export default function (options) {
-  return {
-    test: /\.font\.json$/,
-    loader: ExtractText.extract({
-      fallback: 'style-loader',
-      use: `${options.rules.css}!fontgen-loader?embed`,
-    }),
-  };
-}
+const cssLoader = process.env.NODE_ENV !== 'production' ?
+  'css-loader?source-map-loader' : '-!css-loader?{"modules":true}!postcss-loader??postcss-ident';
+
+export default {
+  test: /\.font\.json$/,
+  loader: ExtractText.extract({
+    fallback: 'style-loader',
+    use: `${cssLoader}!fontgen-loader?embed`,
+  }),
+  include: ['src'],
+};

@@ -4,11 +4,9 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
-export default function () {
-  return {
-    enforce: 'pre',
-    test: /\.js$/,
-    use: 'source-map-loader',
-    exclude: /react-hot-loader/,
-  };
-}
+export default {
+  enforce: 'pre',
+  test: /\.js$/,
+  use: 'source-map-loader',
+  include: ['src'],
+};

@@ -6,12 +6,14 @@
 
 import ExtractText from 'extract-text-webpack-plugin';
 
-export default function (options) {
-  return {
-    test: /\.scss$/,
-    loader: ExtractText.extract({
-      fallback: 'style-loader',
-      use: `${options.rules.css}!sass-loader`,
-    }),
-  };
-}
+const cssLoader = process.env.NODE_ENV !== 'production' ?
+  'css-loader?source-map-loader' : '-!css-loader?{"modules":true}!postcss-loader??postcss-ident';
+
+export default {
+  test: /\.scss$/,
+  loader: ExtractText.extract({
+    fallback: 'style-loader',
+    use: `${cssLoader}!sass-loader`,
+  }),
+  include: ['src'],
+};

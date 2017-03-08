@@ -5,11 +5,12 @@
  */
 
 import webpack from 'webpack';
+import Config from 'webpack-config';
 
-export default function () {
-  return new webpack.ProvidePlugin({
-    $: 'jquery',
-    _: 'lodash',
-    jQuery: 'jquery',
-  });
-}
+import { flowStatus } from './plugins';
+
+export default new Config().extend('base.js').merge({
+  plugins: [
+    flowStatus,
+  ],
+});
