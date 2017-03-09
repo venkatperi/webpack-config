@@ -19,7 +19,7 @@ $ npm install --save-dev webpack webpack-dev-server webpack-config webpack-confi
 ```js
 import Config from 'webpack-config';
 
-export default new Config().extend('config-ca');
+export default new Config().extend('ca');
 ```
 
 2) Then add the `build` and `start` scripts to your `package.json`:
@@ -41,7 +41,7 @@ You can also fine-tune aspects of the configuration and extend other webpack con
 ```js
 import Config from 'webpack-config';
 
-export default new Config().extend('config-ca').merge({
+export default new Config().extend('ca').merge({
   output: {
     path: '/build',
   },
@@ -59,8 +59,8 @@ import webpack from 'webpack';
 import Config from 'webpack-config';
 
 export default new Config().extend(
-  'config-ca',
-  'config-ca/eslint',
+  'ca/lib/base',
+  'ca/lib/eslint',
 ).merge({
   plugins: [
     new webpack.optimize.AggressiveMergingPlugin(),
