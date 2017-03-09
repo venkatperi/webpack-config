@@ -17,9 +17,9 @@ $ npm install --save-dev webpack webpack-dev-server webpack-config-ca
 ### Basic usage
 1) paste the following two lines of code in your `webpack.config.js`:
 ```js
-import config from 'webpack-config-ca';
+import Config from 'webpack-config';
 
-export default config();
+export default new Config().extend('config-ca');
 ```
 
 2) Then add the `build` and `start` scripts to your `package.json`:
@@ -39,6 +39,7 @@ npm start
 You can also fine-tune aspects of the configuration and extend other webpack configurations:
 
 ```js
+import webpack from 'webpack';
 import Config from 'webpack-config';
 
 export default new Config().extend(
