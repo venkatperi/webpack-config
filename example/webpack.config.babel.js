@@ -9,6 +9,9 @@ import { resolve } from 'path';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 
 export default new Config().extend(resolve(__dirname, '../')).merge({
+  output: {
+    path: '/build',
+  },
   plugins: [
     new HTMLWebpackPlugin({
       inject: 'body',
