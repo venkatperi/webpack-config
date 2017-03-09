@@ -4,6 +4,8 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
-import webpack from 'webpack';
+import Config from 'webpack-config';
 
-export default new webpack.optimize.OccurrenceOrderPlugin(true);
+export default new Config().merge({
+  watch: true,
+});

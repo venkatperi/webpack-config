@@ -4,9 +4,12 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
-// TODO: Add HMR without overriding user defined babel configs
+import { resolve } from 'path';
+
 export default {
   test: /\.js$/,
   use: 'babel-loader',
-  include: ['src'],
+  include: [
+    resolve('./src'),
+  ],
 };

@@ -4,10 +4,10 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
+import { resolve } from 'path';
 import ExtractText from 'extract-text-webpack-plugin';
 
-const cssLoader = process.env.NODE_ENV !== 'production' ?
-  'css-loader?source-map-loader' : '-!css-loader?{"modules":true}!postcss-loader??postcss-ident';
+const cssLoader = '-!css-loader?{"modules":true}!postcss-loader??postcss-ident';
 
 export default {
   test: /\.scss$/,
@@ -15,5 +15,7 @@ export default {
     fallback: 'style-loader',
     use: `${cssLoader}!sass-loader`,
   }),
-  include: ['src'],
+  include: [
+    resolve('./src'),
+  ],
 };

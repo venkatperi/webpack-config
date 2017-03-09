@@ -6,48 +6,43 @@
 
 import webpack from 'webpack';
 import Config from 'webpack-config';
-import path from 'path';
-import objectPath from 'object-path';
+import autoprefixer from 'autoprefixer';
 import ExtractText from 'extract-text-webpack-plugin';
 
 import loaders from './loaders';
 import {
   browserSync,
   define,
-  occurrenceOrder,
   stats,
 } from './plugins';
 
 const env = process.env.NODE_ENV;
-const production = env === 'production';
-const filename = process.env.NODE_ENV ? '[name]' : '[name].[hash]';
+const inProduction = env === 'production';
+const filename = inProduction ? '[name]' : '[name].[hash]';
 
 // SHARED CONFIGURATION BETWEEN ALL ENVIRONMENTS
+/* eslint-disable import/no-mutable-exports */
 let config = new Config().merge({
   cache: true,
-
   resolve: {
     extensions: ['*', '.js', '.jsx'],
   },
-
   entry: {
     vendors: ['./src/index.js'],
   },
-
   output: {
-    pathinfo: !production,
+    pathinfo: !inProduction,
     path: 'build',
     filename: `${filename}.js`,
-    publicPath: `/`,
+    publicPath: '/',
     chunkFilename: `/${filename.replace('hash', 'chunkhash')}.js`,
   },
-
   plugins: [
     new webpack.LoaderOptionsPlugin({
       debug: true,
       options: {
         context: __dirname,
-        postcss: () => ([autoprefixer]),
+        postcss: [autoprefixer],
       },
     }),
     new ExtractText({
@@ -60,10 +55,8 @@ let config = new Config().merge({
       name: `${filename}.js`,
       children: true,
     }),
-    occurrenceOrder,
     define,
   ],
-
   module: {
     rules: [
       loaders.css,
@@ -77,7 +70,7 @@ let config = new Config().merge({
 });
 
 // NON PRODUCTION CONFIGURATION
-if (!production) {
+if (!inProduction) {
   config = config.merge({
     plugins: [
       browserSync,
@@ -86,7 +79,7 @@ if (!production) {
   });
 
   // ADD WEBPACK DEV SERVER CONFIGURATION IN WATCH MODE
-  if (config.watch) {
+  if (config.watch || process.env.NODE_ENV === 'development') {
     config = config.merge({
       devServer: {
         contentBase: process.env.APP_URL,

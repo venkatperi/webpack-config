@@ -7,13 +7,11 @@
 import browserSync from './browserSync';
 import define from './define';
 import flowStatus from './flowStatus';
-import occurrenceOrder from './occurrenceOrder';
 import stats from './stats';
 
 export {
   browserSync,
   define,
   flowStatus,
-  occurrenceOrder,
   stats,
 };

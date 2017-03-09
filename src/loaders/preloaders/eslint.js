@@ -4,9 +4,13 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
+import { resolve } from 'path';
+
 export default {
   enforce: 'pre',
   test: /\.js$/,
   use: 'eslint-loader',
-  include: /src/,
+  include: [
+    resolve('./src'),
+  ],
 };

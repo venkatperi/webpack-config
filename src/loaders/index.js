@@ -15,8 +15,8 @@ import sourcemap from './preloaders/sourceMap';
 
 // Preloaders
 export {
-	eslint,
-	sourcemap,
+  eslint,
+  sourcemap,
 };
 
 // Loaders

@@ -4,14 +4,11 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
-const HTMLWebpackPlugin = require('html-webpack-plugin');
-const config = require('../');
+import Config from 'webpack-config';
+import { resolve } from 'path';
+import HTMLWebpackPlugin from 'html-webpack-plugin';
 
-module.exports = config({
-  sourcePath: 'src',
-  outputPath: 'build',
-  hot: true,
-  linting: true,
+export default new Config().extend(resolve(__dirname, '../')).merge({
   plugins: [
     new HTMLWebpackPlugin({
       inject: 'body',

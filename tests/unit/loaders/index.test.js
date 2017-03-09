@@ -4,29 +4,28 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
-import loaders, { eslint, sourcemap } from '../../../src/loaders/';
+import loaders from '../../../src/loaders/';
 
-const { css, fontgen, fonts, images, js, scss } = loaders;
+const { css, fontgen, fonts, js, scss } = loaders;
 
 describe('loaders', () => {
-  it('css loader should test for .css extensions', () => {
+  it('should test for .css extensions when using the css loader', () => {
     expect(css.test).toEqual(/\.css$/);
   });
 
-  it('fontgen loader should test for .font.json extensions', () => {
+  it('should test for .font.json extensions when using the fontgen loader', () => {
     expect(fontgen.test).toEqual(/\.font\.json$/);
   });
 
-  it('fonts loader should test for .ttf, .eot, .woff and .woff2 extensions', () => {
+  it('should test for .ttf, .eot, .woff and .woff2 extensions when using the fonts loader', () => {
     expect(fonts.test).toEqual(/\.(ttf|eot|woff|woff2)/);
   });
 
-  it('js loader should test for .js extensions', () => {
+  it('should test for .js extensions when using the js loader', () => {
     expect(js.test).toEqual(/\.js$/);
   });
 
-  it('scss loader should test for .scss extensions', () => {
+  it('should test for .scss extensions when using the scss loader', () => {
     expect(scss.test).toEqual(/\.scss$/);
   });
-
 });

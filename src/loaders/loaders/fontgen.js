@@ -4,16 +4,16 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
+import { resolve } from 'path';
 import ExtractText from 'extract-text-webpack-plugin';
-
-const cssLoader = process.env.NODE_ENV !== 'production' ?
-  'css-loader?source-map-loader' : '-!css-loader?{"modules":true}!postcss-loader??postcss-ident';
 
 export default {
   test: /\.font\.json$/,
   loader: ExtractText.extract({
     fallback: 'style-loader',
-    use: `${cssLoader}!fontgen-loader?embed`,
+    use: '-!css-loader?{"modules":true}!postcss-loader??postcss-ident!fontgen-loader?embed',
   }),
-  include: ['src'],
+  include: [
+    resolve('./src'),
+  ],
 };

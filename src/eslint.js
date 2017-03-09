@@ -4,12 +4,11 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
-import webpack from 'webpack';
 import Config from 'webpack-config';
 
 import { eslint } from './loaders';
 
-export default new Config().extend('base.js').merge({
+export default new Config().merge({
   module: {
     rules: [eslint],
   },

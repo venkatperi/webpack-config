@@ -4,8 +4,12 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
+import { resolve } from 'path';
+
 export default {
-  test: /\.(png|gif|jpe?g)/,
-  use: [`url-loader?limit=2048`, 'image-webpack-loader?bypassOnDebug'],
-  include: ['src'],
+  test: /\.(png|gif|jpe?g|svg)/,
+  use: ['url-loader?limit=2048', 'image-webpack-loader?bypassOnDebug'],
+  include: [
+    resolve('./src'),
+  ],
 };

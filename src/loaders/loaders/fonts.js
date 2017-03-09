@@ -4,8 +4,12 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
+import { resolve } from 'path';
+
 export default {
   test: /\.(ttf|eot|woff|woff2)/,
   use: 'url-loader',
-  include: ['src'],
+  include: [
+    resolve('./src'),
+  ],
 };

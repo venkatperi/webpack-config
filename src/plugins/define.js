@@ -7,6 +7,6 @@
 import webpack from 'webpack';
 
 export default new webpack.DefinePlugin({
-  'process.env.BABEL_ENV': process.env.NODE_ENV,
-  'process.env.NODE_ENV': process.env.NODE_ENV,
+  'process.env.BABEL_ENV': JSON.stringify(process.env.NODE_ENV),
+  'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
 });

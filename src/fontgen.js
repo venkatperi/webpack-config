@@ -4,12 +4,11 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
-import webpack from 'webpack';
 import Config from 'webpack-config';
 
-import fontgenLoader from './loaders/fontgen';
+import fontgenLoader from './loaders/loaders/fontgen';
 
-export default new Config().extend('base.js').merge({
+export default new Config().merge({
   module: {
     rules: [fontgenLoader],
   },
