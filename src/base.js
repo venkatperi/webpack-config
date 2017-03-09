@@ -17,6 +17,7 @@ import {
 } from './plugins';
 
 const env = process.env.NODE_ENV;
+const isWebpackDevServer = process.argv[1].indexOf('webpack-dev-server') !== -1;
 const inProduction = env === 'production';
 const filename = inProduction ? '[name]' : '[name].[hash]';
 
@@ -79,7 +80,7 @@ if (!inProduction) {
   });
 
   // ADD WEBPACK DEV SERVER CONFIGURATION IN WATCH MODE
-  if (config.watch || process.env.NODE_ENV === 'development') {
+  if (isWebpackDevServer || process.env.NODE_ENV === 'development') {
     config = config.merge({
       devServer: {
         contentBase: process.env.APP_URL,
