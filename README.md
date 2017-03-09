@@ -39,16 +39,12 @@ npm start
 You can also fine-tune aspects of the configuration and extend other webpack configurations:
 
 ```js
-import webpack from 'webpack';
 import Config from 'webpack-config';
 
-export default new Config().extend(
-  'webpack-config-ca',
-  'webpack-config-ca/eslint',
-).merge({
-  plugins: [
-    new webpack.optimize.AggressiveMergingPlugin(),
-  ],
+export default new Config().extend('config-ca').merge({
+  output: {
+    path: '/build',
+  },
 });
 ```
 
@@ -59,16 +55,15 @@ export default new Config().extend(
 ### Advanced usage
 
 ```js
-import config from 'webpack-config-ca';
+import webpack from 'webpack';
+import Config from 'webpack-config';
 
-export default config().merge({
-  module: {
-    loaders: [
-      // Append a loader
-    ],
-  }
+export default new Config().extend(
+  'config-ca',
+  'config-ca/eslint',
+).merge({
   plugins: [
-    // Append a plugin
+    new webpack.optimize.AggressiveMergingPlugin(),
   ],
 });
 ```
