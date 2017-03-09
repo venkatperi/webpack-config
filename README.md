@@ -10,7 +10,7 @@ Extensible configuration for [Webpack](https://webpack.github.io/) projects at C
 
 ## Installation
 ```bash
-$ npm install --save-dev webpack webpack-dev-server webpack-config-ca
+$ npm install --save-dev webpack webpack-dev-server webpack-config webpack-config-ca
 ```
 
 ## Usage
