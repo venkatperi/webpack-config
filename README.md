@@ -36,16 +36,18 @@ npm start
 ```
 
 ### Custom Webpack settings
-You can also fine-tune aspects of the configuration:
+You can also fine-tune aspects of the configuration and extend other webpack configurations:
 
 ```js
-import config from 'webpack-config-ca';
+import Config from 'webpack-config';
 
-export default config({
-  sourcePath: 'src',
-  outputPath: 'builds',
-  hot: true,
-  linting: true
+export default new Config().extend(
+  'webpack-config-ca',
+  'webpack-config-ca/eslint',
+).merge({
+  plugins: [
+    new webpack.optimize.AggressiveMergingPlugin(),
+  ],
 });
 ```
 
