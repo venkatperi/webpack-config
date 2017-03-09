@@ -60,12 +60,9 @@ let config = new Config().merge({
   ],
   module: {
     rules: [
-      loaders.css,
-      loaders.fontgen,
       loaders.fonts,
       loaders.images,
       loaders.js,
-      loaders.scss,
     ],
   },
 });
@@ -74,7 +71,6 @@ let config = new Config().merge({
 if (!inProduction) {
   config = config.merge({
     plugins: [
-      browserSync,
       stats,
     ],
   });
@@ -90,6 +86,7 @@ if (!inProduction) {
         hot: true,
       },
       plugins: [
+        browserSync,
         new webpack.HotModuleReplacementPlugin(),
       ],
     });
