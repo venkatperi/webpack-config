@@ -10,16 +10,16 @@ Extensible configuration for [Webpack](https://webpack.github.io/) projects at C
 
 ## Installation
 ```bash
-$ npm install --save-dev webpack webpack-dev-server ca-webpack-config
+$ npm install --save-dev webpack webpack-dev-server webpack-config webpack-config-ca
 ```
 
 ## Usage
 ### Basic usage
 1) paste the following two lines of code in your `webpack.config.js`:
 ```js
-import config from 'ca-webpack-config';
+import Config from 'webpack-config';
 
-export default config();
+export default new Config().extend('ca');
 ```
 
 2) Then add the `build` and `start` scripts to your `package.json`:
@@ -36,16 +36,15 @@ npm start
 ```
 
 ### Custom Webpack settings
-You can also fine-tune aspects of the configuration:
+You can also fine-tune aspects of the configuration and extend other webpack configurations:
 
 ```js
-import config from 'ca-webpack-config';
+import Config from 'webpack-config';
 
-export default config({
-  sourcePath: 'src',
-  outputPath: 'builds',
-  hot: true,
-  linting: true
+export default new Config().extend('ca').merge({
+  output: {
+    path: '/build',
+  },
 });
 ```
 
@@ -56,16 +55,15 @@ export default config({
 ### Advanced usage
 
 ```js
-import config from 'ca-webpack-config';
+import webpack from 'webpack';
+import Config from 'webpack-config';
 
-export default config().merge({
-  module: {
-    loaders: [
-      // Append a loader
-    ],
-  }
+export default new Config().extend(
+  'ca/lib/base',
+  'ca/lib/eslint',
+).merge({
   plugins: [
-    // Append a plugin
+    new webpack.optimize.AggressiveMergingPlugin(),
   ],
 });
 ```

@@ -4,11 +4,12 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
-const config = require('ca-webpack-config');
+import Config from 'webpack-config';
 
-module.exports = config({
-  sourcePath: 'src',
-  outputPath: 'builds',
-  hot: true,
-  linting: true,
+import { flowStatus } from './plugins';
+
+export default new Config().merge({
+  plugins: [
+    flowStatus,
+  ],
 });

@@ -4,10 +4,13 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
-export default function () {
-  return {
-    test: /\.js$/,
-    loader: 'source-map-loader',
-    exclude: /react-hot-loader/,
-  };
-}
+import { resolve } from 'path';
+
+export default {
+  enforce: 'pre',
+  test: /\.js$/,
+  use: 'source-map-loader',
+  include: [
+    resolve('./src'),
+  ],
+};

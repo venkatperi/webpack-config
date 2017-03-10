@@ -4,12 +4,12 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
-import { resolve } from 'path';
+import Config from 'webpack-config';
 
-export default {
-  test: /\.(ttf|eot|woff|woff2)/,
-  use: 'url-loader',
-  include: [
-    resolve('./src'),
-  ],
-};
+import fontgenLoader from './loaders/loaders/fontgen';
+
+export default new Config().merge({
+  module: {
+    rules: [fontgenLoader],
+  },
+});

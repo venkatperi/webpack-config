@@ -4,10 +4,12 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
-export default function (options) {
-  return {
-    test: /\.(js|ts)$/,
-    loader: 'baggage-loader?[file].html=template&[file].scss',
-    include: options.sourcePath,
-  };
-}
+import Config from 'webpack-config';
+
+import scssLoader from './loaders/loaders/scss';
+
+export default new Config().merge({
+  module: {
+    rules: [scssLoader],
+  },
+});

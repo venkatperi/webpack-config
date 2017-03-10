@@ -4,11 +4,18 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
+import { resolve } from 'path';
 import ExtractText from 'extract-text-webpack-plugin';
 
-export default function (options) {
-  return {
-    test: /\.scss$/,
-    loader: ExtractText.extract('style', `${options.loaders.css}!sass`),
-  };
-}
+const cssLoader = '-!css-loader?{"modules":true}!postcss-loader??postcss-ident';
+
+export default {
+  test: /\.scss$/,
+  loader: ExtractText.extract({
+    fallback: 'style-loader',
+    use: `${cssLoader}!sass-loader`,
+  }),
+  include: [
+    resolve('./src'),
+  ],
+};

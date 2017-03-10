@@ -4,9 +4,12 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
-export default function () {
-  return {
-    test: /\.json/,
-    loader: 'json',
-  };
-}
+import Config from 'webpack-config';
+
+import cssLoader from './loaders/loaders/css';
+
+export default new Config().merge({
+  module: {
+    rules: [cssLoader],
+  },
+});

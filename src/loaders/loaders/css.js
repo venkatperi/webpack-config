@@ -4,11 +4,16 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
+import { resolve } from 'path';
 import ExtractText from 'extract-text-webpack-plugin';
 
-export default function (options) {
-  return {
-    test: /\.css$/,
-    loader: ExtractText.extract('style', options.loaders.css),
-  };
-}
+export default {
+  test: /\.css$/,
+  use: ExtractText.extract({
+    fallback: 'style-loader',
+    use: '-!css-loader?{"modules":true}!postcss-loader??postcss-ident',
+  }),
+  include: [
+    resolve('./src'),
+  ],
+};

@@ -6,9 +6,6 @@
 
 /* eslint-disable import/no-unresolved */
 
-const config = require('../../lib');
+const baseConfig = require('../../lib');
 
-module.exports = config({
-  sourcePath: 'src',
-  outputPath: 'builds',
-});
+module.exports = baseConfig;

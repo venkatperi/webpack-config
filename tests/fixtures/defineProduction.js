@@ -5,13 +5,12 @@
  */
 
 import webpack from 'webpack';
+import Config from 'webpack-config';
 
-export default function () {
-  return new webpack.optimize.UglifyJsPlugin({
-    mangle: true,
-    compress: {
-      screw_ie8: true,
-      warnings: false,
-    },
-  });
-}
+export default new Config().merge({
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production'),
+    }),
+  ],
+});

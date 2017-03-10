@@ -4,12 +4,12 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
-import webpack from 'webpack';
+import Config from 'webpack-config';
 
-export default function () {
-  return new webpack.ProvidePlugin({
-    $: 'jquery',
-    _: 'lodash',
-    jQuery: 'jquery',
-  });
-}
+import { eslint } from './loaders';
+
+export default new Config().merge({
+  module: {
+    rules: [eslint],
+  },
+});
