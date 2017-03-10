@@ -29,11 +29,11 @@ export default new Config().merge({
     extensions: ['*', '.js', '.jsx'],
   },
   entry: {
-    vendors: ['./src/index.js'],
+    main: ['./src/index.js'],
   },
   output: {
     pathinfo: !inProduction,
-    path: 'build',
+    path: `${process.cwd()}/build`,
     filename: `${filename}.js`,
     publicPath: '/',
     chunkFilename: `/${filename.replace('hash', 'chunkhash')}.js`,
@@ -63,10 +63,6 @@ export default new Config().merge({
       allChunks: true,
     }),
     new webpack.ContextReplacementPlugin(/moment[\\]locale$/, /^\.\/(en-us)$/),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: `${filename}.js`,
-      children: true,
-    }),
     define,
 
     // development plugins
