@@ -19,11 +19,12 @@ import {
 const env = process.env.NODE_ENV;
 const isWebpackDevServer = process.argv[1].indexOf('webpack-dev-server') !== -1;
 const inProduction = env === 'production';
-const filename = inProduction ? '[name]' : '[name].[hash]';
+const filename = inProduction ? '[name].[hash]' : '[name]';
 
 // SHARED CONFIGURATION BETWEEN ALL ENVIRONMENTS
 /* eslint-disable import/no-mutable-exports */
 let config = new Config().merge({
+  devtool: inProduction ? false : 'cheap-module-source-map',
   cache: true,
   resolve: {
     extensions: ['*', '.js', '.jsx'],
@@ -74,23 +75,23 @@ if (!inProduction) {
       stats,
     ],
   });
+}
 
-  // ADD WEBPACK DEV SERVER CONFIGURATION IN WATCH MODE
-  if (isWebpackDevServer || process.env.NODE_ENV === 'development') {
-    config = config.merge({
-      devServer: {
-        contentBase: process.env.APP_URL,
-        historyApiFallback: {
-          index: '/index.html',
-        },
-        hot: true,
+// ADD WEBPACK DEV SERVER CONFIGURATION IN WATCH MODE
+if (isWebpackDevServer) {
+  config = config.merge({
+    devServer: {
+      contentBase: process.env.APP_URL,
+      historyApiFallback: {
+        index: '/index.html',
       },
-      plugins: [
-        browserSync,
-        new webpack.HotModuleReplacementPlugin(),
-      ],
-    });
-  }
+      hot: true,
+    },
+    plugins: [
+      browserSync,
+      new webpack.HotModuleReplacementPlugin(),
+    ],
+  });
 }
 
 export default config;
