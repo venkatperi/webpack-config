@@ -11,10 +11,10 @@ export default new BrowserSyncPlugin(
   {
     // browse to http://localhost:3000/ during development
     host: 'localhost',
-    port: 3000,
+    port: process.env.BS_PORT || 3000,
     // proxy the Webpack Dev Server endpoint
     // through BrowserSync
-    proxy: 'http://localhost:8080',
+    proxy: `http://localhost:${process.env.WDS_PORT || 8080}`,
   },
   // plugin options
   {

@@ -11,6 +11,7 @@ import fontgen from './fontgen';
 import eslint from './eslint';
 import flowStatus from './flowStatus';
 import production from './production';
+import browserSync from './browserSync';
 
 export default base.merge(
   css,
@@ -19,4 +20,5 @@ export default base.merge(
   eslint,
   flowStatus,
   production,
+  browserSync,
 );

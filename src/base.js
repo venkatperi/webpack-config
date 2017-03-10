@@ -13,7 +13,6 @@ import fontsLoader from './loaders/loaders/fonts';
 import imagesLoader from './loaders/loaders/images';
 import jsLoader from './loaders/loaders/js';
 
-import browserSync from './plugins/browserSync';
 import define from './plugins/define';
 import stats from './plugins/stats';
 
@@ -43,11 +42,10 @@ export default new Config().merge({
   // ADD WEBPACK DEV SERVER CONFIGURATION IN WATCH MODE
   ...(isWebpackDevServer ? {
     devServer: {
-      contentBase: process.env.APP_URL,
-      historyApiFallback: {
-        index: '/index.html',
-      },
+      contentBase: 'build',
+      historyApiFallback: true,
       hot: true,
+      port: process.env.WDS_PORT || 8080,
     },
   } : {}),
 
@@ -78,7 +76,6 @@ export default new Config().merge({
 
     // ADD HMR PLUGIN IN WATCH MODE
     ...(isWebpackDevServer ? [
-      browserSync,
       new webpack.HotModuleReplacementPlugin(),
     ] : []),
   ],
