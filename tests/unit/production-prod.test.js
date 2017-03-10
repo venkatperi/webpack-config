@@ -7,7 +7,7 @@
 import webpack from 'webpack';
 
 process.env.NODE_ENV = 'production';
-const config = require('../../src/production.js').default;
+const config = require('../../src/production').default;
 
 describe('production config in production mode', () => {
   it('will export an instance of webpack-config', () => {

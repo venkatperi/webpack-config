@@ -4,10 +4,9 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
-process.env.NODE_ENV = 'development';
-const config = require('../../src/production').default;
+import config from '../../src/browserSync';
 
-describe('production config in development mode', () => {
+describe('browserSync config without watch mode', () => {
   it('will export an instance of webpack-config', () => {
     expect(typeof config.merge).toBe('function');
   });
