@@ -34,7 +34,7 @@ export default new Config().merge({
   },
   output: {
     pathinfo: !inProduction,
-    path: 'build',
+    path: `${process.cwd()}/build`,
     filename: `${filename}.js`,
     publicPath: '/',
     chunkFilename: `/${filename.replace('hash', 'chunkhash')}.js`,
