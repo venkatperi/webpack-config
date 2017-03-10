@@ -29,7 +29,7 @@ let config = new Config().merge({
     extensions: ['*', '.js', '.jsx'],
   },
   entry: {
-    vendors: ['./src/index.js'],
+    main: ['./src/index.js'],
   },
   output: {
     pathinfo: !inProduction,
@@ -52,10 +52,6 @@ let config = new Config().merge({
       allChunks: true,
     }),
     new webpack.ContextReplacementPlugin(/moment[\\]locale$/, /^\.\/(en-us)$/),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: `${filename}.js`,
-      children: true,
-    }),
     define,
   ],
   module: {
