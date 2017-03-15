@@ -6,6 +6,10 @@
 
 import BrowserSyncPlugin from 'browser-sync-webpack-plugin';
 
+// detect if --https option was passed to Webpack Dev Server
+const isWebpackDevServer = process.argv[1].indexOf('webpack-dev-server') !== -1;
+const isSSL = isWebpackDevServer && process.argv.indexOf('--https') !== -1;
+
 export default new BrowserSyncPlugin(
   // BrowserSync options
   {
@@ -14,7 +18,8 @@ export default new BrowserSyncPlugin(
     port: process.env.BS_PORT || 3000,
     // proxy the Webpack Dev Server endpoint
     // through BrowserSync
-    proxy: `http://localhost:${process.env.WDS_PORT || 8080}`,
+    proxy: `http${isSSL ? 's' : ''}://localhost:${process.env.WDS_PORT || 8080}`,
+    https: isSSL,
   },
   // plugin options
   {
