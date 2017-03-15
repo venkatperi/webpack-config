@@ -6,12 +6,12 @@
 
 import config from '../../src/browserSync';
 
-describe('browserSync config without watch mode', () => {
+describe('browserSync config without using webpack-dev-server', () => {
   it('will export an instance of webpack-config', () => {
     expect(typeof config.merge).toBe('function');
   });
 
-  it('will contain no plugins if in development', () => {
+  it('will contain no plugins', () => {
     expect(config.plugins.length).toBe(0);
   });
 });
