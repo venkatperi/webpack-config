@@ -36,7 +36,7 @@ export default new Config().merge({
     path: `${process.cwd()}/build`,
     filename: `${filename}.js`,
     publicPath: '/',
-    chunkFilename: `/${filename.replace('hash', 'chunkhash')}.js`,
+    chunkFilename: `${filename.replace('hash', 'chunkhash')}.js`,
   },
 
   // ADD WEBPACK DEV SERVER CONFIGURATION IN WATCH MODE
