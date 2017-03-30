@@ -4,4 +4,10 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
-import './TestComp';
+import React from 'react';
+import test from './TestComp.svg';
+import './TestComp.scss';
+
+const TestComp = () => <div>{test}</div>;
+
+export default TestComp;

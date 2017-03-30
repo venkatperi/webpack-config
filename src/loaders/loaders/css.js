@@ -11,7 +11,7 @@ export default {
   test: /\.css$/,
   use: ExtractText.extract({
     fallback: 'style-loader',
-    use: '-!css-loader?{"modules":true}!postcss-loader??postcss-ident',
+    use: 'css-loader?{"modules":true}',
   }),
   include: [
     resolve('./src'),
