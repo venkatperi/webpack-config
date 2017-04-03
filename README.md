@@ -1,4 +1,6 @@
 # CA Technologies Webpack configuration
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/CAAPIM/webpack-config.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/CAAPIM/webpack-config.svg?branch=master)](https://travis-ci.org/CAAPIM/webpack-config)
 [![codecov](https://codecov.io/gh/CAAPIM/webpack-config/branch/master/graph/badge.svg)](https://codecov.io/gh/CAAPIM/webpack-config)
 [![dependencies](https://david-dm.org/CAAPIM/webpack-config.svg)](https://david-dm.org/CAAPIM/webpack-config)
