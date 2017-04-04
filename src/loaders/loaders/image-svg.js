@@ -7,7 +7,7 @@
 import { resolve } from 'path';
 
 export default {
-  test: /\.(png|gif|jpe?g)/,
+  test: /\.(svg)/,
   use: ['url-loader?limit=2048', 'image-webpack-loader?bypassOnDebug'],
   include: [
     resolve('./src'),
