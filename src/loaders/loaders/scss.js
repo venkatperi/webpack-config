@@ -11,7 +11,7 @@ export default {
   test: /\.scss$/,
   loader: ExtractText.extract({
     fallback: 'style-loader',
-    use: 'css-loader?{"modules":true}!sass-loader',
+    use: 'css-loader!sass-loader',
   }),
   include: [
     resolve('./src'),
