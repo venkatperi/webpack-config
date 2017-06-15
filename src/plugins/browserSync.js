@@ -13,12 +13,12 @@ const isSSL = isWebpackDevServer && process.argv.indexOf('--https') !== -1;
 export default new BrowserSyncPlugin(
   // BrowserSync options
   {
-    // browse to http://localhost:3000/ during development
+    // browse to http://localhost:3001/ during development
     host: 'localhost',
-    port: process.env.BS_PORT || 3000,
+    port: process.env.BS_PORT || 3001,
     // proxy the Webpack Dev Server endpoint
     // through BrowserSync
-    proxy: `http${isSSL ? 's' : ''}://localhost:${process.env.WDS_PORT || 8080}`,
+    proxy: `http${isSSL ? 's' : ''}://localhost:${process.env.WDS_PORT || 3000}`,
     https: isSSL,
   },
   // plugin options

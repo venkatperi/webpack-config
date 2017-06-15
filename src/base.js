@@ -7,22 +7,21 @@
 import webpack from 'webpack';
 import Config from 'webpack-config';
 import autoprefixer from 'autoprefixer';
-import ExtractText from 'extract-text-webpack-plugin';
+import Dotenv from 'dotenv-webpack';
 
 import fontsLoader from './loaders/loaders/fonts';
 import imagesLoader from './loaders/loaders/images';
 import jsLoader from './loaders/loaders/js';
 
-import define from './plugins/define';
 import stats from './plugins/stats';
 
 const env = process.env.NODE_ENV;
 const isWebpackDevServer = process.argv[1].indexOf('webpack-dev-server') !== -1;
 const inProduction = env === 'production';
-const filename = inProduction ? '[name].[hash]' : '[name]';
 
 // SHARED CONFIGURATION BETWEEN ALL ENVIRONMENTS
 export default new Config().merge({
+  stats: 'errors-only',
   devtool: inProduction ? false : 'cheap-module-source-map',
   cache: true,
   resolve: {
@@ -32,20 +31,20 @@ export default new Config().merge({
     main: ['./src/index.js'],
   },
   output: {
+    filename: '[name].js',
     pathinfo: !inProduction,
     path: `${process.cwd()}/build`,
-    filename: `${filename}.js`,
     publicPath: '/',
-    chunkFilename: `${filename.replace('hash', 'chunkhash')}.js`,
   },
 
   // ADD WEBPACK DEV SERVER CONFIGURATION IN WATCH MODE
   ...(isWebpackDevServer ? {
     devServer: {
+      stats: 'errors-only',
       contentBase: 'build',
       historyApiFallback: true,
       hot: true,
-      port: process.env.WDS_PORT || 8080,
+      port: process.env.WDS_PORT || 3000,
     },
   } : {}),
 
@@ -57,13 +56,8 @@ export default new Config().merge({
         postcss: [autoprefixer],
       },
     }),
-    new ExtractText({
-      filename: `${filename}.css`,
-      disable: false,
-      allChunks: true,
-    }),
     new webpack.ContextReplacementPlugin(/moment[\\]locale$/, /^\.\/(en-us)$/),
-    define,
+    new Dotenv({ systemvars: true }),
 
     // development plugins
     ...(!inProduction ? [

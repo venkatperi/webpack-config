@@ -13,10 +13,6 @@ describe('index config in development mode', () => {
     expect(typeof config.merge).toBe('function');
   });
 
-  it('will not contain the hash in the output filename', () => {
-    expect(config.output.filename).not.toContain('[hash]');
-  });
-
   it('can merge loaders and plugins', () => {
     const newConfig = config.merge({
       watch: true,
