@@ -5,6 +5,7 @@
  */
 
 import Config from 'webpack-config';
+
 import base from './base';
 import css from './css';
 import scss from './scss';
