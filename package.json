@@ -43,7 +43,7 @@
     "webpack-config": "^7.0.0"
   },
   "peerDependencies": {
-    "webpack-dev-server": "^2.4.5",
+    "webpack-dev-server": "^2.5.0",
     "webpack": "^2.6.1"
   },
   "devDependencies": {
