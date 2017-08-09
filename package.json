@@ -40,7 +40,7 @@
     "stats-webpack-plugin": "^0.6.0",
     "style-loader": "^0.18.2",
     "url-loader": "^0.5.9",
-    "webpack-config": "^7.0.0"
+    "webpack-config": "7.1.0"
   },
   "peerDependencies": {
     "webpack-dev-server": "^2.4.5",
